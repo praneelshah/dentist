@@ -47,6 +47,14 @@ const Doctors = () => {
     return () => clearInterval(interval);
   }, [api]);
 
+  const scrollToDoctor = (doctorName: string) => {
+    const elementId = `doctor-${doctorName.toLowerCase().replace(/\s+/g, '-').replace(/\./g, '')}`;
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const doctors = [
     {
       name: "Dr. Thomas Rollins",
@@ -178,8 +186,11 @@ const Doctors = () => {
               >
                 <CarouselContent className="-ml-2 md:-ml-4">
                   {doctors.map((doctor, index) => (
-                    <CarouselItem key={index} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
-                      <Card className="overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 group h-full">
+                    <CarouselItem key={index} className="pl-2 md:pl-4 basis-full lg:basis-1/2">
+                      <Card 
+                        className="overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 group h-full cursor-pointer"
+                        onClick={() => scrollToDoctor(doctor.name)}
+                      >
                         <div className="relative aspect-[3/4] overflow-hidden bg-gradient-to-br from-primary/10 to-accent/5">
                           <img
                             src={doctor.image}
@@ -233,7 +244,12 @@ const Doctors = () => {
                             </div>
                           </div>
 
-                          <Button className="w-full" variant="outline" asChild>
+                          <Button 
+                            className="w-full" 
+                            variant="outline" 
+                            asChild
+                            onClick={(e) => e.stopPropagation()}
+                          >
                             <Link to="/contact">Book Consultation</Link>
                           </Button>
                         </CardContent>
@@ -255,7 +271,10 @@ const Doctors = () => {
           <div className="space-y-32">
             {doctors.map((doctor, index) => (
               <AnimatedSection key={doctor.name} delay={index * 100}>
-                <Card className="overflow-hidden border-2 border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl group bg-gradient-to-br from-background to-primary/5">
+                <Card 
+                  id={`doctor-${doctor.name.toLowerCase().replace(/\s+/g, '-').replace(/\./g, '')}`}
+                  className="overflow-hidden border-2 border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl group bg-gradient-to-br from-background to-primary/5"
+                >
                   <CardContent className="p-0">
                     <div className={`grid lg:grid-cols-5 gap-0 ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
                       {/* Image Section */}
