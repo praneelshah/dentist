@@ -181,12 +181,13 @@ const Doctors = () => {
                 opts={{
                   align: "start",
                   loop: true,
+                  slidesToScroll: 1,
                 }}
                 className="w-full"
               >
                 <CarouselContent className="-ml-2 md:-ml-4">
-                  {doctors.map((doctor, index) => (
-                    <CarouselItem key={index} className="pl-2 md:pl-4 basis-full lg:basis-1/2">
+                  {[...doctors, ...doctors].map((doctor, index) => (
+                    <CarouselItem key={`${doctor.name}-${index}`} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-[32%]">
                       <Card 
                         className="overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 group h-full cursor-pointer"
                         onClick={() => scrollToDoctor(doctor.name)}

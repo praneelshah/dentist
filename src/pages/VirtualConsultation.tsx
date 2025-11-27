@@ -253,7 +253,7 @@ const VirtualConsultation = () => {
           <div className="mt-8">
             <p className="text-lg mb-4 font-light opacity-90">Prefer to talk directly?</p>
             <Button size="lg" variant="outline" asChild className="bg-transparent backdrop-blur-sm border-white/30 text-white hover:bg-white hover:text-primary transition-all duration-300">
-              <a href="tel:8168803900">Call (816) 880-3900</a>
+              <a href="tel:8168803900">Call 610-301-0295</a>
             </Button>
           </div>
         </div>

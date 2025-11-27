@@ -133,8 +133,8 @@ const Home = () => {
           <div className="container mx-auto px-4 text-center relative z-10">
             <h2 className="text-3xl md:text-4xl font-serif font-light text-accent-foreground tracking-wide">
               Contact us today at{" "}
-              <a href="tel:8168803900" className="font-semibold underline decoration-2 underline-offset-4 hover:no-underline transition-all">
-                816-880-3900
+              <a href="tel:610-301-0295" className="font-semibold underline decoration-2 underline-offset-4 hover:no-underline transition-all">
+              610-301-0295
               </a>
             </h2>
             <p className="mt-4 text-accent-foreground/80">Schedule your initial consultation</p>
@@ -297,8 +297,8 @@ const Home = () => {
                 e-mail
               </a>{" "}
               or call us at{" "}
-              <a href="tel:8168803900" className="text-accent font-medium hover:underline underline-offset-4 transition-all">
-                (816) 880-3900
+              <a href="tel:610-301-0295" className="text-accent font-medium hover:underline underline-offset-4 transition-all">
+              610-301-0295
               </a>{" "}
               with any questions. Thanks for visiting!
             </p>
